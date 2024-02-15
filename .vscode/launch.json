@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SqlWorldDemo1Application<sql-world-demo-1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.stthomas.sqlworlddemo1.SqlWorldDemo1Application",
+            "projectName": "sql-world-demo-1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

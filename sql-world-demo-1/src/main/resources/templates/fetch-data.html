@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data from Server</title>
+</head>
+<body>
+    <h1>Fetch Data from Server</h1>
+    <button id="fetchButton">Fetch All Data</button>
+    <div id="dataContainer"></div>
+   
+    <script>
+        document.getElementById("fetchButton").addEventListener("click", function() {
+            // Create an XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+           
+            // Define what happens on successful data retrieval
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const responseData = JSON.parse(xhr.responseText);
+                    displayData(responseData);
+                } else {
+                    console.error("Error:", xhr.statusText);
+                }
+            };
+           
+            // Define what happens in case of error
+            xhr.onerror = function() {
+                console.error("Request failed.");
+            };
+           
+            // Set up our request
+            xhr.open("GET", "http://localhost:9090/demo/all", true);
+           
+            // Send the request
+            xhr.send();
+        });
+       
+        function displayData(data) {
+            const dataContainer = document.getElementById("dataContainer");
+            dataContainer.innerHTML = ""; // Clear previous data
+           
+            if (data.length === 0) {
+                dataContainer.textContent = "No data available.";
+            } else {
+                const ul = document.createElement("ul");
+                data.forEach(function(item) {
+                    const li = document.createElement("li");
+                    li.textContent = "Name: " + item.name + ", Email: " + item.email;
+                    ul.appendChild(li);
+                });
+                dataContainer.appendChild(ul);
+            }
+        }
+    </script>
+</body>
+</html>
