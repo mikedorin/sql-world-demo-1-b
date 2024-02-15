@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WebController {
 
+    @GetMapping("/")
+    public String sendIndexPage() {
+        return "index";
+    }
+
     @GetMapping("/send-data")
     public String sendDataPage() {
         return "send-data"; // Assuming your HTML file for sending data is named send-data.html
