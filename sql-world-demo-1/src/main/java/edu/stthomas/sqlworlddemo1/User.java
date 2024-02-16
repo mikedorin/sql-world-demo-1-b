@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 // This tells Hibernate to make a table out of this class
+//
+//
 @Entity
 public class User {
     @Id
